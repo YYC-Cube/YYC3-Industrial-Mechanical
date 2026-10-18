@@ -1,6 +1,6 @@
 # YYC³ Industrial Mechanical
 
-![YYC³ Industrial Mechanical](public/Family-001.png)
+![YYC³ Industrial Mechanical](public/Family-001.webp)
 
 <div align="center">
 

@@ -1,6 +1,6 @@
 # YYC³ Industrial Mechanical
 
-![YYC³ Industrial Mechanical](public/Family-001.png)
+![YYC³ Industrial Mechanical](public/Family-001.webp)
 
 <div align="center">
 
@@ -228,7 +228,7 @@ YYC3-Industrial-Mechanical/
 │   ├── CNAME                    # 自定义域名：im.yyc3.top
 │   ├── .nojekyll                # 关闭 GitHub Pages 的 Jekyll 处理
 │   ├── yyc3-dist/               # 全端 Logo / favicon / manifest
-│   └── Family-001.png           # 品牌主视觉
+│   └── Family-001.webp          # 品牌主视觉（WebP，56KB）
 ├── docs/                        # YYC³ 团队规范与验收文档
 ├── out/                         # 静态导出产物（构建生成，已 gitignore）
 ├── next.config.mjs              # output: 'export' 静态导出配置
