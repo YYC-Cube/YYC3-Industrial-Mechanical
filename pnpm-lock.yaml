@@ -184,7 +184,7 @@ importers:
         version: 1.4.0
       '@hookform/resolvers':
         specifier: ^3.9.1
-        version: 3.10.0(react-hook-form@7.66.1(react@19.3.1))
+        version: 3.10.0(react-hook-form@7.90.0(@types/react@19.2.6)(react@19.3.1))
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -312,8 +312,8 @@ importers:
         specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
       react-hook-form:
-        specifier: ^7.54.1
-        version: 7.66.1(react@19.3.1)
+        specifier: ^7.90.0
+        version: 7.90.0(@types/react@19.2.6)(react@19.3.1)
       react-resizable-panels:
         specifier: ^2.1.7
         version: 2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -2993,11 +2993,15 @@ packages:
     peerDependencies:
       react: ^19.3.1
 
-  react-hook-form@7.66.1:
-    resolution: {integrity: sha512-2KnjpgG2Rhbi+CIiIBQQ9Df6sMGH5ExNyFl4Hw9qO7pIqMBR8Bvu9RQyjl3JM4vehzCh9soiNUM/xYMswb2EiA==}
+  react-hook-form@7.90.0:
+    resolution: {integrity: sha512-+NdG0FLzCPhFOp2NNxaUYLF9fyZhNjx9FTBBSYWF71/l6BBlmIc/j6xlp3DbaHWLJbIG7Zd8oznA19xJClU97w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
+      '@types/react': '*'
       react: ^16.8.0 || ^17 || ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3631,9 +3635,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@hookform/resolvers@3.10.0(react-hook-form@7.66.1(react@19.3.1))':
+  '@hookform/resolvers@3.10.0(react-hook-form@7.90.0(@types/react@19.2.6)(react@19.3.1))':
     dependencies:
-      react-hook-form: 7.66.1(react@19.3.1)
+      react-hook-form: 7.90.0(@types/react@19.2.6)(react@19.3.1)
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -4777,7 +4781,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.60.1
       debug: 4.4.3(supports-color@7.2.0)
       minimatch: 10.2.5
-      semver: 7.7.3
+      semver: 7.8.5
       tinyglobby: 0.2.15
       ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -6152,9 +6156,11 @@ snapshots:
       react: 19.3.1
       scheduler: 0.28.0
 
-  react-hook-form@7.66.1(react@19.3.1):
+  react-hook-form@7.90.0(@types/react@19.2.6)(react@19.3.1):
     dependencies:
       react: 19.3.1
+    optionalDependencies:
+      '@types/react': 19.2.6
 
   react-is@16.13.1: {}
 
@@ -6304,8 +6310,7 @@ snapshots:
 
   semver@7.7.3: {}
 
-  semver@7.8.5:
-    optional: true
+  semver@7.8.5: {}
 
   set-function-length@1.2.2:
     dependencies:
