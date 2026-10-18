@@ -167,7 +167,7 @@ export default function CasesTab({ module }: { module: ModuleData }) {
                   </p>
                 </div>
               </div>
-              <p className="text-sm italic">"{testimonial.content}"</p>
+              <p className="text-sm italic">&ldquo;{testimonial.content}&rdquo;</p>
               <div className="mt-3 flex">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔐 报告安全漏洞
+    url: https://github.com/YYC-Cube/YYC3-Industrial-Mechanical/security/advisories/new
+    about: 请勿通过公开 Issue 披露安全问题，改用私密漏洞报告流程
+  - name: 💬 讨论与提问
+    url: https://github.com/YYC-Cube/YYC3-Industrial-Mechanical/discussions
+    about: 一般性讨论、提问与想法交流
+  - name: 📐 团队开发规范
+    url: https://github.com/YYC-Cube/YYC3-Industrial-Mechanical/blob/main/docs/YYC3-%E5%9B%A2%E9%98%9F%E9%80%9A%E7%94%A8-%E6%A0%87%E5%87%86%E8%A7%84%E8%8C%83/YYC3-%E5%9B%A2%E9%98%9F%E8%A7%84%E8%8C%83-%E5%BC%80%E5%8F%91%E6%A0%87%E5%87%86.md
+    about: 查阅 YYC³ 团队统一开发标准

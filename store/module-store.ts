@@ -152,19 +152,19 @@ export const useModuleStore = create<ModuleState>()(
           const existingModule = get().modules.find((m) => m.id === id);
           if (existingModule) return existingModule;
 
-          // 否则从API获取
-          const module = await getModuleById(id);
+          // 否则从数据源获取
+          const fetchedModule = await getModuleById(id);
 
           // 如果获取成功，更新本地状态
-          if (module) {
+          if (fetchedModule) {
             set((state) => ({
               modules: state.modules.some((m) => m.id === id)
-                ? state.modules.map((m) => (m.id === id ? module : m))
-                : [...state.modules, module],
+                ? state.modules.map((m) => (m.id === id ? fetchedModule : m))
+                : [...state.modules, fetchedModule],
             }));
           }
 
-          return module;
+          return fetchedModule;
         } catch (error) {
           handleError(error, {
             tags: ["module-store", "fetch-module"],

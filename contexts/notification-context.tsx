@@ -1,15 +1,15 @@
 "use client";
 
+import { useSound } from "@/contexts/sound-context";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 import {
   createContext,
+  useCallback,
   useContext,
   useState,
-  useCallback,
   type ReactNode,
 } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import { useSound } from "@/contexts/sound-context";
 
 export type NotificationType = "info" | "success" | "warning" | "error";
 
@@ -35,13 +35,19 @@ interface NotificationContextType {
 const NotificationContext = createContext<NotificationContextType>({
   notifications: [],
   addNotification: () => "",
-  removeNotification: () => {},
-  clearNotifications: () => {},
+  removeNotification: () => { },
+  clearNotifications: () => { },
 });
 
 export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const { playSound } = useSound();
+
+  const removeNotification = useCallback((id: string) => {
+    setNotifications((prev) =>
+      prev.filter((notification) => notification.id !== id),
+    );
+  }, []);
 
   const addNotification = useCallback(
     (notification: Omit<Notification, "id">) => {
@@ -74,14 +80,8 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
 
       return id;
     },
-    [playSound],
+    [playSound, removeNotification],
   );
-
-  const removeNotification = useCallback((id: string) => {
-    setNotifications((prev) =>
-      prev.filter((notification) => notification.id !== id),
-    );
-  }, []);
 
   const clearNotifications = useCallback(() => {
     setNotifications([]);
@@ -170,58 +170,4 @@ export function useNotification() {
   return useContext(NotificationContext);
 }
 
-// 便捷函数
-export const toast = {
-  info: (
-    message: string,
-    options?: Partial<Omit<Notification, "id" | "type" | "message">>,
-  ) => {
-    const { addNotification } = useContext(NotificationContext);
-    return addNotification({
-      type: "info",
-      title: options?.title || "信息",
-      message,
-      duration: options?.duration || 3000,
-      actions: options?.actions,
-    });
-  },
-  success: (
-    message: string,
-    options?: Partial<Omit<Notification, "id" | "type" | "message">>,
-  ) => {
-    const { addNotification } = useContext(NotificationContext);
-    return addNotification({
-      type: "success",
-      title: options?.title || "成功",
-      message,
-      duration: options?.duration || 3000,
-      actions: options?.actions,
-    });
-  },
-  warning: (
-    message: string,
-    options?: Partial<Omit<Notification, "id" | "type" | "message">>,
-  ) => {
-    const { addNotification } = useContext(NotificationContext);
-    return addNotification({
-      type: "warning",
-      title: options?.title || "警告",
-      message,
-      duration: options?.duration || 4000,
-      actions: options?.actions,
-    });
-  },
-  error: (
-    message: string,
-    options?: Partial<Omit<Notification, "id" | "type" | "message">>,
-  ) => {
-    const { addNotification } = useContext(NotificationContext);
-    return addNotification({
-      type: "error",
-      title: options?.title || "错误",
-      message,
-      duration: options?.duration || 5000,
-      actions: options?.actions,
-    });
-  },
-};
+// 便捷函数已移除（原 toast 对象在非组件/非 Hook 函数中调用 useContext，违反 rules-of-hooks 且无调用方）。
